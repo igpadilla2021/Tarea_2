@@ -7,7 +7,8 @@ package Tarea_1;
  */
 
 
-public class Expendedor {
+public class
+Expendedor {
     /**
      * cuatro depositos de tipo Producto para almacenar nuestras bebidas y dulces, y un deposito del tipo Moneda para
      * almacenar nuestro vuelto en monedas.

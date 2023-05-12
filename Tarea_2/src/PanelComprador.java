@@ -2,12 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelComprador extends JPanel {
-    PanelSelecionador np;
-    public PanelComprador() {
+    PanelSelecionador sp;
+    public PanelComprador(PanelExpendedor exp) {
         this.setLayout(null);
-        np=new PanelSelecionador();
-        np.setBounds(500,150,200,200);
-        this.add(np);
+        this.setBackground(new Color(0,0,0,0));
+
+        sp=new PanelSelecionador(exp);
+        sp.setBounds(500,150,200,200);
+        this.add(sp);
     }
     public void paint(Graphics g) {
         super.paint(g);

@@ -1,5 +1,4 @@
 package Tarea_1;
-
 public class Main {
     public static void main(String[] args){
         Expendedor exp=new Expendedor (3,600,900);

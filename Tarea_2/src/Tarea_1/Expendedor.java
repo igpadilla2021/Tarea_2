@@ -10,7 +10,7 @@ package Tarea_1;
 public class
 Expendedor {
     /**
-     * cuatro depositos de tipo Producto para almacenar nuestras bebidas y dulces, y un deposito del tipo Moneda para
+     * cuatro depositos de tipo Producto para almacenar nuestras bebidas y dulces, y un deposito del tipo Tarea_1.Moneda para
      * almacenar nuestro vuelto en monedas.
      *
      * tambien dos Int para definir COCA = 1, SPRITE = 2, SNIKERS = 3, SUPER8 = 4;
@@ -57,11 +57,11 @@ Expendedor {
      * Metodo para comprar productos donde se checkea cual producto se quiere comprar y el valor de la moneda, dando un
      * vuelto acorde a este valor. Si el producto que se quiere sacar no es ninguno de los disponibles, se returna null
      * y un vuelto igual a la moneda ingresada
-     * @param m Moneda la cual se ingresa al comprar el producto
+     * @param m Tarea_1.Moneda la cual se ingresa al comprar el producto
      * @param cual Cual producto es el que se quiere comprar
      * @return Retorna el producto sacado del deposito que se pide en el parametro cual
      */
-    public Producto comprarProducto(Moneda m,int cual) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
+    public Producto comprarProducto(Moneda m, int cual) throws PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException {
         int p;
         Producto b;
         if (m==null){

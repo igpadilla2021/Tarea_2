@@ -1,3 +1,4 @@
+import Productos.*;
 import javax.swing.*;
 import java.awt.*;
 public class DepProductos extends JPanel {
@@ -41,5 +42,11 @@ public class DepProductos extends JPanel {
         if(num==4){
             super8.moverProducto();
         }
+    }
+    public void retirarProducto(){
+        coca.vaciarDeposito();
+        sprite.vaciarDeposito();
+        snickers.vaciarDeposito();
+        super8.vaciarDeposito();
     }
 }

@@ -1,4 +1,4 @@
-package Productos;
+package Elementos;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,6 +20,9 @@ public class DepCoca extends JPanel {
         for(int c=0;c<cant;c=c+1){
             g.setColor(Color.RED);
             g.fillRect(x,y,50,75);
+            g.setColor(Color.BLACK);
+            g.drawString("COCA",x+9,y+35);
+            g.drawString("COLA",x+10,y+50);
             g.setColor(Color.BLACK);
             g.drawRect(x,y,50,75);
             this.x=x+10;

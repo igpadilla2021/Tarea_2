@@ -1,4 +1,4 @@
-import Productos.*;
+import Elementos.*;
 import javax.swing.*;
 import java.awt.*;
 public class DepProductos extends JPanel {

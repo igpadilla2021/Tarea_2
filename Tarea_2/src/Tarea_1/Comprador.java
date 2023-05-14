@@ -54,7 +54,7 @@ public class Comprador {
     public String queConsumiste() {
         return sonido;
     }
-    public Producto getDatos(){
+    public Producto Prodcuto(){
         return p1;
     }
 }

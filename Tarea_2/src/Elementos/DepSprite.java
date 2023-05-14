@@ -1,30 +1,32 @@
-package Productos;
+package Elementos;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class DepSnickers extends JPanel {
+public class DepSprite extends JPanel {
     private int x;
     private int y;
     private int p=0;
     private int cant=24;
-    public DepSnickers(){
+    public DepSprite(){
         this.setLayout(new BorderLayout());
         this.setBackground(new Color(0,0,0,0));
         this.x=50;
-        this.y=300;
+        this.y=175;
     }
     public void paint(Graphics g){
         super.paint(g);
         for(int c=0;c<cant;c=c+1){
-            g.setColor(new Color(139,69,19));
+            g.setColor(new Color(32,178,170));
             g.fillRect(x,y,50,75);
+            g.setColor(Color.BLACK);
+            g.drawString("SPRITE",x+5,y+40);
             g.setColor(Color.BLACK);
             g.drawRect(x,y,50,75);
             this.x=x+10;
         }
         if(p==1){
-            g.setColor(new Color(139,69,19));
+            g.setColor(new Color(32,178,170));
             g.fillRect(75,570,75,50);
             g.setColor(Color.BLACK);
             g.drawRect(75,570,75,50);

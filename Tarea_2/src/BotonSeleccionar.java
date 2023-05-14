@@ -1,3 +1,8 @@
+/**
+ *Clase que crea el boton para seleccionar el producto
+ * @author Ignacio Padilla
+ * @author Joaquin Garcia
+ */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;

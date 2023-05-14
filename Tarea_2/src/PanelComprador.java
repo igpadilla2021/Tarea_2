@@ -1,10 +1,23 @@
+/**
+ *Clase que crea el panel del comprador
+ * @author Ignacio Padilla
+ * @author Joaquin Garcia
+ */
 import javax.swing.*;
 import java.awt.*;
 
 public class PanelComprador extends JPanel {
+    /**
+     * se definen paneles para seleccionar, pagar y retirar.
+     */
     PanelSelecionador sp;
     PanelPagar dp;
     PanelRetirar rp;
+
+    /**
+     * clase que crea el panel para comprar, generando un panel para retirar, uno para pagar y uno para seleccionar
+     * @param exp panel expendedor que se ocupa como "fondo" para alojar los otros paneles
+     */
     public PanelComprador(PanelExpendedor exp) {
         this.setLayout(null);
         this.setBackground(new Color(0,0,0,0));
@@ -29,6 +42,11 @@ public class PanelComprador extends JPanel {
 
 
     }
+
+    /**
+     * paint se encarga de pintar los paneles que definimos arriba
+     * @param g es el "pincel" que pinta
+     */
     public void paint(Graphics g) {
         super.paint(g);
         g.setColor(Color.orange);
@@ -41,6 +59,10 @@ public class PanelComprador extends JPanel {
         g.fillRect(500, 485, 200, 35);
         g.fillRect(500, 0, 25, 500);
     }
+
+    /**
+     * desbloquear desbloquea el boton para seleccionar
+     */
     public void Desbloquear(){
         sp.Desbloquear();
     }

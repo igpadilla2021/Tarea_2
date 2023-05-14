@@ -1,3 +1,8 @@
+/**
+ *Clase que crea el panel del expendedor
+ * @author Ignacio Padilla
+ * @author Joaquin Garcia
+ */
 import javax.swing.*;
 import java.awt.*;
 
@@ -5,6 +10,9 @@ import Elementos.DepVuelto;
 import Tarea_1.*;
 
 public class PanelExpendedor extends JPanel {
+    /**
+     * definimos un deposito de productos, un expendedor, moneda, numero de productos, vuelto y un comprador
+     */
     private DepProductos pd;
     private Expendedor exp;
     private Moneda moneda;
@@ -12,6 +20,11 @@ public class PanelExpendedor extends JPanel {
     private Producto producto;
     private DepVuelto vuelto;
     private Comprador c;
+
+    /**
+     * el metodo constructor genera un panel expendedor, tomando un expendedor exp, un depVuelto vuelto y un deposito
+     * de productos pd
+     */
     public PanelExpendedor(){
         this.setLayout(null);
 
@@ -25,9 +38,19 @@ public class PanelExpendedor extends JPanel {
         pd.setBounds(0,0,700,720);
         this.add(pd);
     }
+
+    /**
+     * mover mueve un numero de producto en el panel expendedor
+     */
     public void mover(){
         pd.mover(numproducto);
     }
+
+    /**
+     * Moneda define las monedas que se pueden utilizar, 100, 500 y 1000 pesos. Tambien se hace un print para saber el
+     * numero de serie de la moneda.
+     * @param num es un int para seleccionar el tipo de moneda que se quiere utilizar.
+     */
 
     public void Moneda(int num){
         if(num==1){
@@ -42,11 +65,22 @@ public class PanelExpendedor extends JPanel {
         System.out.println("Numero de serie de moneda = "+moneda.getSerie());
         comprarProducto(moneda,numproducto,exp);
     }
+
+    /**
+     * numProducto define el numero de productos
+     * @param num es el numero de productos
+     */
     public void numProducto(int num){
         numproducto=num;
     }
 
-
+    /**
+     * comprarProducto compra un producto del expendedor con una moneda. Si el producto es no nulo, se calcula el vuelto
+     * segun su precio y ademas se imprime su numero de serie. De lo contrario, se devuelve la moneda que se ingresó.
+     * @param m es la moneda ocupada para comprar
+     * @param num es el numero de producto
+     * @param exp es el expendedor que se ocupa
+     */
     public void comprarProducto(Moneda m, int num, Expendedor exp){
         c=new Comprador(m,num,exp);
         producto=c.Prodcuto();
@@ -68,20 +102,40 @@ public class PanelExpendedor extends JPanel {
         }
     }
 
+    /**
+     * Producto define un producto
+     * @return retorna el producto
+     */
     public Producto producto(){
         return producto;
     }
+
+    /**
+     * define un comprador
+     * @return retorna un comprador c
+     */
     public Comprador getComprador(){
         return c;
     }
 
+    /**
+     * getvuelto entrega el vuelto y su valor
+     */
     public void getVuelto(){
         vuelto.entregarVuelto(0,"");
     }
+
+    /**
+     * getproduct retira un producto de el deposito de productos
+     */
     public void getProducto(){
         pd.retirarProducto();
     }
 
+    /**
+     * paint se encarga de pintar el panel expendedor
+     * @param g es el "pincel" que pinta el panel
+     */
     public void paint(Graphics g) {
         super.paint(g);
         g.setColor(Color.LIGHT_GRAY);

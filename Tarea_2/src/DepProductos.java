@@ -1,3 +1,8 @@
+/**
+ *Clase que define el deposito de productos
+ * @author Ignacio Padilla
+ * @author Joaquin Garcia
+ */
 import Elementos.*;
 import javax.swing.*;
 import java.awt.*;

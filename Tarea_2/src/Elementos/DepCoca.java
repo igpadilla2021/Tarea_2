@@ -54,6 +54,8 @@ public class DepCoca extends JPanel {
             g.fillRect(75,570,75,50);
             g.setColor(Color.BLACK);
             g.drawRect(75,570,75,50);
+            g.drawString("COCA",85,595);
+            g.drawString("COLA",85,610);
         }
         x=50;
     }

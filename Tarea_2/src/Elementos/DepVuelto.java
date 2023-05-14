@@ -1,26 +1,14 @@
-/**
- *Clase que define al deposito de vuelto
- * @author Ignacio Padilla
- * @author Joaquin Garcia
- */
 package Elementos;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class DepVuelto extends JPanel {
-    /**
-     * definimos nuestras coordenadas int x e int y para crear el boton que se encarga de administrar el vuelto en el
-     * expendedor. cant maneja la cantidad de vuelto que se debe dar, valor maneja el valor del vuelto.
-     */
     private int x;
     private int y;
     private int cant=0;
-    private int caso=0;
+    private int color;
     private String valor;
-    /**
-     * el metodo constructor crea los objetos visibles dentro del expendedor que representa el vuelto
-     */
     public DepVuelto(){
         this.setLayout(new BorderLayout());
         this.setBackground(new Color(0,0,0,0));
@@ -28,15 +16,18 @@ public class DepVuelto extends JPanel {
         this.x=270;
         this.y=570;
     }
-    /**
-     * paint se encarga de pintar el deposito de vuelto, haciendo un ciclo for para pintar las monedas con sus
-     * respectivos valores.
-     * @param g es definido como el "pincel" que pinta en este caso.
-     */
     public void paint(Graphics g) {
         super.paint(g);
         for(int c=0;c<cant;c=c+1){
-            g.setColor(Color.YELLOW);
+            if(color==1){
+                g.setColor(Color.YELLOW);
+            }
+            if(color==2){
+                g.setColor(new Color(255,99,71));
+            }
+            if(color==3){
+                g.setColor(new Color(205,1,70));
+            }
             g.fillOval(x,y,30,30);
             g.setColor(Color.BLACK);
             g.drawOval(x,y,30,30);
@@ -50,14 +41,9 @@ public class DepVuelto extends JPanel {
         x=270;
         y=570;
     }
-
-    /**
-     * entregarVuelto se encarga de definir la cantidad y el valor del vuelto que se requiere
-     * @param c es la cantidad de vuelto
-     * @param valor es el valor del vuelto
-     */
-    public void entregarVuelto(int c, String valor){
+    public void entregarVuelto(int c, String valor,int color){
         this.valor=valor;
         cant=c;
+        this.color=color;
     }
 }

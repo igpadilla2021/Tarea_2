@@ -47,6 +47,7 @@ public class DepSprite extends JPanel {
             g.setColor(new Color(32,178,170));
             g.fillRect(75,570,75,50);
             g.setColor(Color.BLACK);
+            g.drawString("SPRITE",85,595);
             g.drawRect(75,570,75,50);
         }
         x=50;

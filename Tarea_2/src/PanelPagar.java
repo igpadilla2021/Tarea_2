@@ -21,17 +21,16 @@ public class PanelPagar extends JPanel {
      * @param rp es el panel para retirar
      */
     public PanelPagar(PanelExpendedor exp, PanelRetirar rp){
-        this.setLayout(new GridLayout(3,1));
+        this.setLayout(new GridLayout(3,1,0,50));
 
         b1=new BotonPagar("$100", exp,1,rp,this);
-
-        b1.setBackground(new Color(34,139,34));
+        b1.setBackground(Color.yellow);
 
         b2=new BotonPagar("$500", exp,2,rp,this);
-        b2.setBackground(new Color(34,139,34));
+        b2.setBackground(new Color(255,99,71));
 
         b3=new BotonPagar("$1000", exp,3,rp,this);
-        b3.setBackground(new Color(34,139,34));
+        b3.setBackground(new Color(205,1,70));
 
         this.add(b1);
         this.add(b2);

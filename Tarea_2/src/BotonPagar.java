@@ -3,10 +3,12 @@
  * @author Ignacio Padilla
  * @author Joaquin Garcia
  */
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-public class BotonPagar extends JButton  {
+import javax.swing.*;
+
+public class BotonPagar extends JButton {
     /**
      * definimos un panel expendedor, un panel para pagar, un panel para retirar y un num que representa el dinero
      */
@@ -19,16 +21,17 @@ public class BotonPagar extends JButton  {
      * el metodo constructor define los paneles y un listener
      * @param n es un string que da el nombre del boton
      * @param exp es el panel expendedor
-     * @param num es el numero que representa el dinero
-     * @param rp es el panel para retirar
-     * @param dp es el panel para retirar
+     * @param num es el numero que representa la moneda asociada
+     * @param rp es el panelRetirar a habilitiar o inhabilitar
+     * @param dp es el PabelPagar a inhabilitar
      */
     public BotonPagar(String n, PanelExpendedor exp, int num, PanelRetirar rp, PanelPagar dp){
         super(n);
         this.rp=rp;
         this.dp=dp;
         this.num=num;
-        this.exp = exp;
+        this.exp=exp;
+
         this.addActionListener(new EscuchadorBotton());
     }
 

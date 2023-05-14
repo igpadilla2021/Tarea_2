@@ -28,7 +28,7 @@ public class PanelComprador extends JPanel {
         this.add(rp);
 
         dp=new PanelPagar(exp,rp);
-        dp.setBounds(800,125,200,400);
+        dp.setBounds(800,50,150,550);
         dp.Bloquear();
         this.add(dp);
 
@@ -36,15 +36,10 @@ public class PanelComprador extends JPanel {
         sp.setBounds(525,35,150,450);
         this.add(sp);
 
-        /**JLabel l1=new JLabel("sus");
-        l1.setBounds(800,10,100,100);
-        this.add(l1);*/
-
-
     }
 
     /**
-     * paint se encarga de pintar los paneles que definimos arriba
+     * paint se encarga de pintar los paneles que definimos arriba ademas de parte del diseño grafico del expendedor
      * @param g es el "pincel" que pinta
      */
     public void paint(Graphics g) {
@@ -52,6 +47,7 @@ public class PanelComprador extends JPanel {
         g.setColor(Color.orange);
         g.fillRect(675, 0, 25, 500);
         g.setColor(Color.darkGray);
+        //g.drawString("VALORES DE MONEDA",800,30);
         g.fillRect(500, 0, 200, 35);
         g.fillRect(500, 110, 200, 50);
         g.fillRect(500, 235, 200, 50);

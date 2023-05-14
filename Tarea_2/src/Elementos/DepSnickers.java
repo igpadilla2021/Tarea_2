@@ -47,6 +47,7 @@ public class DepSnickers extends JPanel {
             g.setColor(new Color(139,69,19));
             g.fillRect(75,570,75,50);
             g.setColor(Color.BLACK);
+            g.drawString("SNICKERS",85,595);
             g.drawRect(75,570,75,50);
         }
         x=50;

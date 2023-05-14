@@ -47,6 +47,7 @@ public class DepSuper8 extends JPanel {
             g.setColor(Color.yellow);
             g.fillRect(75,570,75,50);
             g.setColor(Color.BLACK);
+            g.drawString("SUPER 8",85,595);
             g.drawRect(75,570,75,50);
         }
         x=50;

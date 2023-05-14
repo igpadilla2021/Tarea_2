@@ -14,6 +14,7 @@ public class PanelRetirar extends JPanel {
     private JButton b2;
     private int extraccion;
     private PanelComprador pc;
+    private PanelExpendedor exp;
 
     /**
      * se genera un panel para poder retirar los productos. Se crean los botones b1 y b2 con el texto que usan y sus
@@ -24,6 +25,7 @@ public class PanelRetirar extends JPanel {
     public PanelRetirar(PanelExpendedor exp, PanelComprador pc){
         extraccion=0;
         this.pc=pc;
+        this.exp=exp;
 
         this.setLayout(new GridLayout(2,1));
 
@@ -60,6 +62,7 @@ public class PanelRetirar extends JPanel {
         if(extraccion==2){
             pc.Desbloquear();
             extraccion=0;
+            exp.reset();
         }
     }
 

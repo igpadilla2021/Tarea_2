@@ -6,7 +6,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-import Elementos.DepVuelto;
+import Elementos.*;
 import Tarea_1.*;
 
 public class PanelExpendedor extends JPanel {
@@ -19,6 +19,7 @@ public class PanelExpendedor extends JPanel {
     private int numproducto;
     private Producto producto;
     private DepVuelto vuelto;
+    private DepMonedas md;
     private Comprador c;
 
     /**
@@ -28,7 +29,8 @@ public class PanelExpendedor extends JPanel {
     public PanelExpendedor(){
         this.setLayout(null);
 
-        exp=new Expendedor(24,100,1500);
+        exp=new Expendedor(24,900,100);
+        md=new DepMonedas();
 
         vuelto=new DepVuelto();
         vuelto.setBounds(0,0,700,720);
@@ -62,7 +64,6 @@ public class PanelExpendedor extends JPanel {
         if(num==3){
             moneda=new Moneda1000();
         }
-        System.out.println("Numero de serie de moneda = "+moneda.getSerie());
         comprarProducto(moneda,numproducto,exp);
     }
 
@@ -85,19 +86,19 @@ public class PanelExpendedor extends JPanel {
         c=new Comprador(m,num,exp);
         producto=c.Prodcuto();
         if(producto!=null){
+            md.add(moneda);
             mover();
-            vuelto.entregarVuelto(c.cuantoVuelto()/100,"100");
-            System.out.println("Numero de serie de bebida = "+producto.getSerie());
+            vuelto.entregarVuelto(c.cuantoVuelto()/100,"100",1);
         }
         else{
             if(moneda.getValor()==100){
-                vuelto.entregarVuelto(1,"100");
+                vuelto.entregarVuelto(1,"100",1);
             }
             else if(moneda.getValor()==500){
-                vuelto.entregarVuelto(1,"500");
+                vuelto.entregarVuelto(1,"500",2);
             }
             else if(moneda.getValor()==1000){
-                vuelto.entregarVuelto(1,"1000");
+                vuelto.entregarVuelto(1,"1000",3);
             }
         }
     }
@@ -119,17 +120,19 @@ public class PanelExpendedor extends JPanel {
     }
 
     /**
-     * getvuelto entrega el vuelto y su valor
+     * getvuelto obtiene y grafica el vuelto y su valor
      */
-    public void getVuelto(){
-        vuelto.entregarVuelto(0,"");
-    }
+    public void getVuelto(){vuelto.entregarVuelto(0,"",1);}
 
     /**
      * getproduct retira un producto de el deposito de productos
      */
     public void getProducto(){
         pd.retirarProducto();
+    }
+    public void reset(){
+        moneda=null;
+        producto=null;
     }
 
     /**
@@ -143,7 +146,16 @@ public class PanelExpendedor extends JPanel {
         g.fillRect(0, 250, 500, 10);
         g.fillRect(0, 375, 500, 10);
         g.fillRect(0, 500, 500, 10);
+        g.setColor(new Color(173,216,230));
+        g.fillRect(350,20,150,70);
         g.setColor(Color.darkGray);
+        if(null != moneda){
+            g.drawString("N° MONEDA ="+moneda.getSerie(),355,45);
+        }
+        if(producto!=null){
+            g.drawString("N° PRODUCTO ="+producto.getSerie(),355,65);
+        }
+        g.drawRect(350,20,150,70);
         g.fillRect(0, 0, 500, 20);
         g.fillRect(0,650,500,20);
         g.fillRect(0, 520, 500, 20);
@@ -151,5 +163,4 @@ public class PanelExpendedor extends JPanel {
         g.fillRect(220, 540, 20, 110);
         g.fillRect(480, 540, 20, 110);
     }
-
 }

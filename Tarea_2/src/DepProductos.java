@@ -4,6 +4,8 @@
  * @author Joaquin Garcia
  */
 import Elementos.*;
+import Tarea_1.*;
+
 import javax.swing.*;
 import java.awt.*;
 public class DepProductos extends JPanel {
@@ -53,5 +55,33 @@ public class DepProductos extends JPanel {
         sprite.vaciarDeposito();
         snickers.vaciarDeposito();
         super8.vaciarDeposito();
+    }
+    public void llenarDepostio(int num){
+        if (num==1){
+            coca.rellenarDeposito();
+        }
+        else if (num==2){
+            sprite.rellenarDeposito();
+        }
+        else if (num==3){
+            snickers.rellenarDeposito();
+        }
+        else if (num==4){
+            super8.rellenarDeposito();
+        }
+    }
+    public int cuantasQuedan(int num){
+        if (num==1){
+            return coca.cuantasQuedan();
+        }
+        else if (num==2){
+            return sprite.cuantasQuedan();
+        }
+        else if (num==3){
+            return snickers.cuantasQuedan();
+        }
+        else {
+            return super8.cuantasQuedan();
+        }
     }
 }

@@ -5,11 +5,13 @@
  */
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import Elementos.*;
 import Tarea_1.*;
 
-public class PanelExpendedor extends JPanel {
+public class PanelExpendedor extends JPanel implements MouseListener {
     /**
      * definimos un deposito de productos, un expendedor, moneda, numero de productos, vuelto y un comprador
      */
@@ -21,6 +23,7 @@ public class PanelExpendedor extends JPanel {
     private DepVuelto vuelto;
     private DepMonedas md;
     private Comprador c;
+    private PanelExpendedor estepanel;
 
     /**
      * el metodo constructor genera un panel expendedor, tomando un expendedor exp, un depVuelto vuelto y un deposito
@@ -28,8 +31,9 @@ public class PanelExpendedor extends JPanel {
      */
     public PanelExpendedor(){
         this.setLayout(null);
+        estepanel=this;
 
-        exp=new Expendedor(24,900,100);
+        exp=new Expendedor(24,800,0);
         md=new DepMonedas();
 
         vuelto=new DepVuelto();
@@ -39,6 +43,8 @@ public class PanelExpendedor extends JPanel {
         pd=new DepProductos();
         pd.setBounds(0,0,700,720);
         this.add(pd);
+
+        this.addMouseListener(this);
     }
 
     /**
@@ -135,6 +141,11 @@ public class PanelExpendedor extends JPanel {
         producto=null;
     }
 
+    public void llenarDeposito(int num){
+        exp.llenarDeposito(num);
+        pd.llenarDepostio(num);
+    }
+
     /**
      * paint se encarga de pintar el panel expendedor
      * @param g es el "pincel" que pinta el panel
@@ -163,4 +174,16 @@ public class PanelExpendedor extends JPanel {
         g.fillRect(220, 540, 20, 110);
         g.fillRect(480, 540, 20, 110);
     }
+    public void mouseClicked(MouseEvent me) {;}
+    public void mousePressed(MouseEvent me) {
+        for(int t=0; t<4 ;t=t+1){
+            if(pd.cuantasQuedan(t)==0){
+                llenarDeposito(t);
+                this.repaint();
+            }
+        }
+    }
+    public void mouseReleased(MouseEvent me) {;}
+    public void mouseEntered(MouseEvent me) {;}
+    public void mouseExited(MouseEvent me) {;}
 }

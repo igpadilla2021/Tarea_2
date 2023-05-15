@@ -66,4 +66,10 @@ public class DepSprite extends JPanel {
     public void vaciarDeposito(){
         p=0;
     }
+    public void rellenarDeposito(){
+        cant=24;
+    }
+    public int cuantasQuedan(){
+        return cant;
+    }
 }

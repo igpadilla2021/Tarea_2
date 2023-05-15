@@ -28,6 +28,11 @@ Expendedor {
     public static final int  SUPER8=4;
     private int precioBebidas;
     private int precioDulces;
+    private int pcoca;
+    private int psprite;
+    private int psnickers;
+    private int psuper8;
+    private int numProductos;
 
     /**
      * metodo constructor de el Expendedor donde se definen todos los depositos de productos y el de monedas, ademas de
@@ -39,17 +44,25 @@ Expendedor {
     public Expendedor(int numProductos, int precioBebidas, int precioDulces){
         this.precioBebidas=precioBebidas;
         this.precioDulces=precioDulces;
-        int p;
+        this.numProductos=numProductos;
+        pcoca=100;
+        psprite=200;
+        psnickers=300;
+        psuper8=400;
         this.monVu=new Deposito<Moneda>();
         coca=new Deposito<Producto>();
         sprite=new Deposito<Producto>();
         snickers=new Deposito<Producto>();
         super8=new Deposito<Producto>();
-        for(p=0;p!=numProductos;p=p+1){
-            coca.add(new CocaCola(100+p));
-            sprite.add(new Sprite(200+p));
-            snickers.add(new Snickers(300+p));
-            super8.add(new Super8(400+p));
+        for(int p=0;p!=numProductos;p=p+1){
+            pcoca=pcoca+1;
+            coca.add(new CocaCola(pcoca));
+            psprite=psprite+1;
+            sprite.add(new Sprite(psprite));
+            psnickers=psnickers+1;
+            snickers.add(new Snickers(psnickers));
+            psuper8=psuper8+1;
+            super8.add(new Super8(psuper8));
         }
     }
 
@@ -108,5 +121,32 @@ Expendedor {
      */
     public Moneda getVuelto(){
         return monVu.get();
+    }
+    public void llenarDeposito(int num){
+        if (num==1){
+            for(int p=0;p!=numProductos;p=p+1){
+                pcoca=pcoca+1;
+                coca.add(new CocaCola(pcoca));
+            }
+        }
+        else if (num==2){
+            for(int p=0;p!=numProductos;p=p+1){
+                psprite=psprite+1;
+                sprite.add(new Sprite(psprite));
+            }
+        }
+        else if (num==3){
+            for(int p=0;p!=numProductos;p=p+1){
+                psnickers=psnickers+1;
+                snickers.add(new Snickers(psnickers));
+            }
+        }
+        else if (num==4){
+            for(int p=0;p!=numProductos;p=p+1){
+                psuper8=psuper8+1;
+                super8.add(new Super8(psuper8));
+            }
+        }
+
     }
 }

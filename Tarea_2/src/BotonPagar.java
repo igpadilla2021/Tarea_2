@@ -9,10 +9,11 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class BotonPagar extends JButton {
+
     /**
-     * definimos un panel expendedor, un panel para pagar, un panel para retirar y un num que representa el dinero
+     * definimos un panel principal, un panel para pagar, un panel para retirar y un num que representa el dinero
      */
-    private PanelExpendedor exp;
+    private PanelPrincipal pp;
     private PanelPagar dp;
     private PanelRetirar rp;
     private int num;
@@ -20,17 +21,18 @@ public class BotonPagar extends JButton {
     /**
      * el metodo constructor define los paneles y un listener
      * @param n es un string que da el nombre del boton
-     * @param exp es el panel expendedor
+     * @param pp es el panel principal
      * @param num es el numero que representa la moneda asociada
      * @param rp es el panelRetirar a habilitiar o inhabilitar
      * @param dp es el PabelPagar a inhabilitar
      */
-    public BotonPagar(String n, PanelExpendedor exp, int num, PanelRetirar rp, PanelPagar dp){
+    public BotonPagar(String n, PanelPrincipal pp, int num, PanelRetirar rp, PanelPagar dp){
         super(n);
+
         this.rp=rp;
         this.dp=dp;
         this.num=num;
-        this.exp=exp;
+        this.pp=pp;
 
         this.addActionListener(new EscuchadorBotton());
     }
@@ -44,16 +46,16 @@ public class BotonPagar extends JButton {
          * @param ae parametro predeterminado para actionPerformed
          */
         public void actionPerformed(ActionEvent ae) {
-            exp.Moneda(num);
+            pp.panelExpendedor().Moneda(num);
             dp.Bloquear();
             rp.Desbloquear();
-            if(exp.producto()==null) {
+            if(pp.panelExpendedor().producto()==null) {
                 rp.faltaDinero();
             }
-            if(exp.getComprador().cuantoVuelto()==0){
+            if(pp.panelExpendedor().getComprador().cuantoVuelto()==0){
                 rp.dineroJusto();
             }
-            exp.repaint();
+            pp.repaint();
         }
     }
 }

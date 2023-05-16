@@ -4,15 +4,20 @@
  * @author Joaquin Garcia
  */
 import Elementos.*;
-import Tarea_1.*;
-
 import javax.swing.*;
 import java.awt.*;
 public class DepProductos extends JPanel {
+    /**
+     * definimos 4 depositos cada uno asociado a un producto
+     */
     private DepCoca coca;
     private DepSprite sprite;
     private DepSnickers snickers;
     private DepSuper8 super8;
+
+    /**
+     * el metodo constructor genera un depcoca, depsprite, depsnickers y depsuper8.
+     */
     public DepProductos(){
         this.setLayout(null);
         this.setBackground(new Color(0,0,0,0));
@@ -33,9 +38,18 @@ public class DepProductos extends JPanel {
         super8.setBounds(0,0,1080,720);
         this.add(super8,BorderLayout.CENTER);
     }
+
+    /**
+     * paint se encarga de pintar el deposito de productos depProdcutos.
+     * @param g es el "pincel" que pinta el panel
+     */
     public void paint(Graphics g) {
         super.paint(g);
     }
+
+    /**
+     * mover mueve un producto en el panel expendedor
+     */
     public void mover(int num){
         if(num==1){
             coca.moverProducto();
@@ -50,12 +64,20 @@ public class DepProductos extends JPanel {
             super8.moverProducto();
         }
     }
+
+    /**
+     * retirarProducto llama a extraer el producto en el deposito de compra exitosa
+     */
     public void retirarProducto(){
         coca.vaciarDeposito();
         sprite.vaciarDeposito();
         snickers.vaciarDeposito();
         super8.vaciarDeposito();
     }
+
+    /**
+     * llenarDeposito llama a rellenar un deposito
+     */
     public void llenarDepostio(int num){
         if (num==1){
             coca.rellenarDeposito();
@@ -70,6 +92,10 @@ public class DepProductos extends JPanel {
             super8.rellenarDeposito();
         }
     }
+    /**
+     * define un cuantasQuedan
+     * @return retorna la cantidad de productos en un deposito num
+     */
     public int cuantasQuedan(int num){
         if (num==1){
             return coca.cuantasQuedan();

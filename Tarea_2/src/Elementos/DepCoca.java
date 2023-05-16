@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class DepCoca extends JPanel {
     /**
-     * definimos nuestras coordenadas int x e int y para crear el boton que se encarga de administrar cocacola en el
+     * definimos nuestras coordenadas int x e int y para crear el for que se encarga de administrar cocacola en el
      * expendedor. p se encarga de mover el producto del deposito al lugar para retirarlo y viceversa y cant maneja
      * la cantidad de producto que hay actualmente.
      */
@@ -20,7 +20,7 @@ public class DepCoca extends JPanel {
     private int cant=24;
 
     /**
-     * el metodo constructor crea los objetos visibles dentro del expendedor que representan a la cocacola
+     * el metodo constructor crea los objetos visibles dentro del expendedor que representan a la cocacola y define x e y
      */
     public DepCoca(){
         this.setLayout(new BorderLayout());
@@ -61,7 +61,8 @@ public class DepCoca extends JPanel {
     }
 
     /**
-     * moverProducto se encarga de mover el producto (cocacola) a el lugar para retirar.
+     * moverProducto se encarga de mover el producto (cocacola) a el lugar para retirar, cambiando el valor de p y
+     * reduciendo la cantidad de productos cant.
      */
     public void moverProducto(){
         cant=cant-1;
@@ -70,14 +71,23 @@ public class DepCoca extends JPanel {
     }
 
     /**
-     * vaciarDeposito se encarga de "sacar" el producto de el lugar para retirar.
+     * vaciarDeposito se encarga de "sacar" el producto de el lugar para retirar cambiando el valor de p.
      */
     public void vaciarDeposito(){
         p=0;
     }
+
+    /**
+     * rellenarDeposito se encarga de rellenar el deposito cambiando el valor de cant
+     */
     public void rellenarDeposito(){
         cant=24;
     }
+
+    /**
+     * define un entero
+     * @return retorna la cantidad de productos en el depostio cant
+     */
     public int cuantasQuedan(){
         return cant;
     }

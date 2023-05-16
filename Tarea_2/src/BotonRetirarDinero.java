@@ -8,23 +8,22 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 public class BotonRetirarDinero extends JButton  {
     /**
-     * se define un expendedor, un panel para retirar y un panel para pagar
+     * se define un panel principal, un panel para retirar y un panel para pagar
      */
-    private PanelExpendedor exp;
+    private PanelPrincipal pp;
     private PanelRetirar rp;
-    private PanelPagar dp;
 
     /**
      * el botonRetirarDinero sirve para retirar el dinero de el expendedor en caso de que se deba vuelto. Registra
      * la accion de clickear en este.
      * @param n es el nombre que dice el boton
-     * @param exp es el expendedor que se ocupa
+     * @param pp es el panel principal que se ocupa
      * @param rp es el panel para retirar
      */
-    public BotonRetirarDinero(String n, PanelExpendedor exp,PanelRetirar rp){
+    public BotonRetirarDinero(String n, PanelPrincipal pp,PanelRetirar rp){
         super(n);
         this.rp=rp;
-        this.exp = exp;
+        this.pp = pp;
         this.addActionListener(new EscuchadorBotton());
     }
 
@@ -36,8 +35,8 @@ public class BotonRetirarDinero extends JButton  {
         public void actionPerformed(ActionEvent ae) {
             Bloquear();
             rp.nuevaCompra();
-            exp.getVuelto();
-            exp.repaint();
+            pp.panelExpendedor().getVuelto();
+            pp.repaint();
         }
     }
 

@@ -5,7 +5,7 @@ import Tarea_1.Moneda;
 import java.util.ArrayList;
 
 /**
- * Clase que define al deposito de mondas ocupadas "dentro" de la maquina expendedora
+ * Clase que define al deposito de monedas ocupadas "dentro" de la maquina expendedora
  */
 public class DepMonedas {
     /**

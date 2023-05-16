@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class DepSprite extends JPanel {
     /**
-     * definimos nuestras coordenadas int x e int y para crear el boton que se encarga de administrar sprite en el
+     * definimos nuestras coordenadas int x e int y para crear el for que se encarga de administrar sprite en el
      * expendedor. p se encarga de mover el producto del deposito al lugar para retirarlo y viceversa y cant maneja
      * la cantidad de producto que hay actualmente.
      */
@@ -19,7 +19,7 @@ public class DepSprite extends JPanel {
     private int p=0;
     private int cant=24;
     /**
-     * el metodo constructor crea los objetos visibles dentro del expendedor que representan a las sprites
+     * el metodo constructor crea los objetos visibles dentro del expendedor que representan a las sprites y define x e y
      */
     public DepSprite(){
         this.setLayout(new BorderLayout());
@@ -53,22 +53,33 @@ public class DepSprite extends JPanel {
         x=50;
     }
     /**
-     * moverProducto se encarga de mover el producto (sprite) a el lugar para retirar.
+     * moverProducto se encarga de mover el producto (sprite) a el lugar para retirar, cambiando el valor de p y
+     *      * reduciendo la cantidad de productos cant.
      */
     public void moverProducto(){
         cant=cant-1;
         this.x=50;
         p=1;
     }
+
     /**
-     * vaciarDeposito se encarga de "sacar" el producto de el lugar para retirar.
+     * vaciarDeposito se encarga de "sacar" el producto de el lugar para retirar cambiando el valor de p.
      */
     public void vaciarDeposito(){
         p=0;
     }
+
+    /**
+     * rellenarDeposito se encarga de rellenar el deposito cambiando el valor de cant
+     */
     public void rellenarDeposito(){
         cant=24;
     }
+
+    /**
+     * define un entero
+     * @return retorna la cantidad de productos en el depostio cant
+     */
     public int cuantasQuedan(){
         return cant;
     }

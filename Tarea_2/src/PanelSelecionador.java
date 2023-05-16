@@ -17,15 +17,15 @@ public class PanelSelecionador extends JPanel {
 
     /**
      * panelseleccionador es el panel para poder seleccionar entre los 4 botones
-     * @param exp es el expendedor que se ocupa
+     * @param pp es el panel primncipal que se ocupa
      * @param dp es el panel para pagar
      */
-    public PanelSelecionador(PanelExpendedor exp, PanelPagar dp){
+    public PanelSelecionador(PanelPrincipal pp, PanelPagar dp){
         this.setLayout(new GridLayout(4,1,0,50));
-        b1=new BotonSeleccionar("1", exp,1,dp,this);
-        b2=new BotonSeleccionar("2", exp,2,dp,this);
-        b3=new BotonSeleccionar("3", exp,3,dp,this);
-        b4=new BotonSeleccionar("4", exp,4,dp,this);
+        b1=new BotonSeleccionar("1", pp,1,dp,this);
+        b2=new BotonSeleccionar("2", pp,2,dp,this);
+        b3=new BotonSeleccionar("3", pp,3,dp,this);
+        b4=new BotonSeleccionar("4", pp,4,dp,this);
         this.add(b1);
         this.add(b2);
         this.add(b3);

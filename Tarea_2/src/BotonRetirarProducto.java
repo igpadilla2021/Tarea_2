@@ -8,35 +8,34 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 public class BotonRetirarProducto extends JButton  {
     /**
-     * se define un expendedor, un panel para retirar y un panel para pagar
+     * se define un panel principal y un panel para retirar
      */
-    private PanelExpendedor exp;
+    private PanelPrincipal pp;
     private PanelRetirar rp;
-    private PanelPagar dp;
     /**
      * el botonRetirarProducto sirve para retirar el producto de el expendedor que ha sido comprado. Registra
      * la accion de clickear en este.
      * @param n es el nombre que dice el boton
-     * @param exp es el expendedor que se ocupa
+     * @param pp es el panel principal que se ocupa
      * @param rp es el panel para retirar
      */
-    public BotonRetirarProducto(String n, PanelExpendedor exp,PanelRetirar rp){
+    public BotonRetirarProducto(String n, PanelPrincipal pp,PanelRetirar rp){
         super(n);
         this.rp=rp;
-        this.exp = exp;
+        this.pp = pp;
         this.addActionListener(new EscuchadorBotton());
     }
 
     /**
-     * "escucha" la accion de clickear en el boton y si esto se cumple, saca un producto del expendedor y bloquea estos
-     * botones para no poder sacar mas.
+     * "escucha" la accion de clickear en el boton y si esto se cumple, saca un producto del expendedor y bloquea este
+     * boton para no poder sacar mas.
      */
     public class EscuchadorBotton implements ActionListener {
         public void actionPerformed(ActionEvent ae) {
-            exp.getProducto();
+            pp.panelExpendedor().getProducto();
             rp.nuevaCompra();
             Bloquear();
-            exp.repaint();
+            pp.repaint();
         }
     }
 

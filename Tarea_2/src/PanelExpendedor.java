@@ -13,7 +13,8 @@ import Tarea_1.*;
 
 public class PanelExpendedor extends JPanel implements MouseListener {
     /**
-     * definimos un deposito de productos, un expendedor, moneda, numero de productos, vuelto y un comprador
+     * definimos un deposito de productos,un expendedor(tarea_1), un panel principal, moneda, numero de producto,
+     * vuelto, un deposito de un solo producto, un depostio de monedas y un comprador
      */
     private DepProductos pd;
     private Expendedor exp;
@@ -23,17 +24,17 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     private DepVuelto vuelto;
     private DepMonedas md;
     private Comprador c;
-    private PanelExpendedor estepanel;
+    private PanelPrincipal pp;
 
     /**
-     * el metodo constructor genera un panel expendedor, tomando un expendedor exp, un depVuelto vuelto y un deposito
+     * el metodo constructor genera un panel principal, un expendedor exp(tarea_1), un depVuelto vuelto y un deposito
      * de productos pd
      */
-    public PanelExpendedor(){
+    public PanelExpendedor(PanelPrincipal pp){
         this.setLayout(null);
-        estepanel=this;
+        this.pp=pp;
 
-        exp=new Expendedor(24,800,0);
+        exp=new Expendedor(24,1100,0);
         md=new DepMonedas();
 
         vuelto=new DepVuelto();
@@ -48,10 +49,11 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     }
 
     /**
-     * mover mueve un numero de producto en el panel expendedor
+     * numProducto define el numero de productos
+     * @param num es el numero de productos
      */
-    public void mover(){
-        pd.mover(numproducto);
+    public void numProducto(int num){
+        numproducto=num;
     }
 
     /**
@@ -59,7 +61,6 @@ public class PanelExpendedor extends JPanel implements MouseListener {
      * numero de serie de la moneda.
      * @param num es un int para seleccionar el tipo de moneda que se quiere utilizar.
      */
-
     public void Moneda(int num){
         if(num==1){
             moneda=new Moneda100();
@@ -74,16 +75,9 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     }
 
     /**
-     * numProducto define el numero de productos
-     * @param num es el numero de productos
-     */
-    public void numProducto(int num){
-        numproducto=num;
-    }
-
-    /**
-     * comprarProducto compra un producto del expendedor con una moneda. Si el producto es no nulo, se calcula el vuelto
-     * segun su precio y ademas se imprime su numero de serie. De lo contrario, se devuelve la moneda que se ingresó.
+     * comprarProducto compra un producto del expendedor con una moneda. Si el producto es no nulo, se almacena
+     * la moneda usada dentro del expendedor, se mueve el producto, se calcula el vuelto segun su precio y ademas se
+     * imprime su numero de serie. De lo contrario, se devuelve la moneda que se ingresó.
      * @param m es la moneda ocupada para comprar
      * @param num es el numero de producto
      * @param exp es el expendedor que se ocupa
@@ -110,6 +104,25 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     }
 
     /**
+     * mover llama a mover un producto en el panel expendedor
+     */
+    public void mover(){
+        pd.mover(numproducto);
+    }
+
+    /**
+     * getproduct retira un producto de el deposito de productos
+     */
+    public void getProducto(){
+        pd.retirarProducto();
+    }
+
+    /**
+     * getvuelto obtiene y grafica el vuelto y su valor
+     */
+    public void getVuelto(){vuelto.entregarVuelto(0,"",1);}
+
+    /**
      * Producto define un producto
      * @return retorna el producto
      */
@@ -126,28 +139,24 @@ public class PanelExpendedor extends JPanel implements MouseListener {
     }
 
     /**
-     * getvuelto obtiene y grafica el vuelto y su valor
+     * reset establece moneda y producto en null para iniciar un nuevo proceso de compra
      */
-    public void getVuelto(){vuelto.entregarVuelto(0,"",1);}
-
-    /**
-     * getproduct retira un producto de el deposito de productos
-     */
-    public void getProducto(){
-        pd.retirarProducto();
-    }
     public void reset(){
         moneda=null;
         producto=null;
     }
 
+    /**
+     * llenarDeposito llama a rellenar los depositos que se encuentren vacios
+     */
     public void llenarDeposito(int num){
         exp.llenarDeposito(num);
         pd.llenarDepostio(num);
     }
 
     /**
-     * paint se encarga de pintar el panel expendedor
+     * paint se encarga de pintar el panel expendedor, el diseño grafico de este, ademas del numero de serie de la
+     * moneda y/o producto siempre que este sea distinto de null
      * @param g es el "pincel" que pinta el panel
      */
     public void paint(Graphics g) {
@@ -179,7 +188,7 @@ public class PanelExpendedor extends JPanel implements MouseListener {
         for(int t=0; t<4 ;t=t+1){
             if(pd.cuantasQuedan(t)==0){
                 llenarDeposito(t);
-                this.repaint();
+                pp.repaint();
             }
         }
     }

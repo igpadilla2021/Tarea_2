@@ -8,32 +8,29 @@ import java.awt.*;
 
 public class PanelRetirar extends JPanel {
     /**
-     * se definen 2 botones b1 y b2, ade,as de un int extraccion y un panel comprador
+     * se definen 2 botones b1 y b2, ademas de un int extracciony un panel principal
      */
     private JButton b1;
     private JButton b2;
     private int extraccion;
-    private PanelComprador pc;
-    private PanelExpendedor exp;
+    private PanelPrincipal pp;
 
     /**
      * se genera un panel para poder retirar los productos. Se crean los botones b1 y b2 con el texto que usan y sus
      * colores.
-     * @param exp es el expendedor que ocupamos
-     * @param pc es el panel comprador
+     * @param pp es el panel principal
      */
-    public PanelRetirar(PanelExpendedor exp, PanelComprador pc){
+    public PanelRetirar(PanelPrincipal pp){
         extraccion=0;
-        this.pc=pc;
-        this.exp=exp;
+        this.pp=pp;
 
         this.setLayout(new GridLayout(2,1));
 
-        b1=new BotonRetirarProducto("Retirar Producto", exp, this);
+        b1=new BotonRetirarProducto("Retirar Producto", pp,this);
         b1.setForeground(Color.red);
         this.add(b1);
 
-        b2=new BotonRetirarDinero("retirar Dinero",exp, this);
+        b2=new BotonRetirarDinero("retirar Dinero",pp,this);
         b2.setForeground(Color.red);
         this.add(b2);
     }
@@ -55,14 +52,14 @@ public class PanelRetirar extends JPanel {
     }
 
     /**
-     * nuevacompra registra la compra de productos, y en el caso de que se haga esto, se bloquea el panel comprador
+     * nuevacompra registra la compra de productos, y en el caso de que se haga esto, se desbloquea el panel seleccionar
      */
     public void nuevaCompra(){
         extraccion=extraccion+1;
         if(extraccion==2){
-            pc.Desbloquear();
+            pp.panelComprador().Desbloquear();
             extraccion=0;
-            exp.reset();
+            pp.panelExpendedor().reset();
         }
     }
 

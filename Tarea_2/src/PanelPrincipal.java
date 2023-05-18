@@ -3,8 +3,6 @@
  * @author Ignacio Padilla
  * @author Joaquin Garcia
  */
-import Tarea_1.Expendedor;
-
 import javax.swing.*;
 import java.awt.*;
 

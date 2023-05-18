@@ -10,7 +10,7 @@ public class PanelComprador extends JPanel {
     /**
      * se definen paneles para seleccionar, pagar y retirar.
      */
-    PanelSelecionador sp;
+    PanelSeleccionador sp;
     PanelPagar dp;
     PanelRetirar rp;
 
@@ -31,7 +31,7 @@ public class PanelComprador extends JPanel {
         dp.Bloquear();
         this.add(dp);
 
-        sp=new PanelSelecionador(pp,dp);
+        sp=new PanelSeleccionador(pp,dp);
         sp.setBounds(525,35,150,450);
         this.add(sp);
 

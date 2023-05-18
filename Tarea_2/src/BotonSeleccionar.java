@@ -12,7 +12,7 @@ public class BotonSeleccionar extends JButton  {
      */
     private PanelPrincipal pp;
     private PanelPagar dp;
-    private PanelSelecionador sp;
+    private PanelSeleccionador sp;
     private int num;
 
     /**
@@ -22,7 +22,7 @@ public class BotonSeleccionar extends JButton  {
      * @param num es el numero que representa el producto asociado
      * @param dp es el PabelPagar a habilitar
      */
-    public BotonSeleccionar(String n, PanelPrincipal pp, int num, PanelPagar dp, PanelSelecionador sp){
+    public BotonSeleccionar(String n, PanelPrincipal pp, int num, PanelPagar dp, PanelSeleccionador sp){
         super(n);
 
         this.num=num;

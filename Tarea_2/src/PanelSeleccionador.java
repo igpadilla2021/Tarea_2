@@ -6,7 +6,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelSelecionador extends JPanel {
+public class PanelSeleccionador extends JPanel {
     /**
      * se definen 4 botones b1, b2, b3, b4
      */
@@ -20,7 +20,7 @@ public class PanelSelecionador extends JPanel {
      * @param pp es el panel primncipal que se ocupa
      * @param dp es el panel para pagar
      */
-    public PanelSelecionador(PanelPrincipal pp, PanelPagar dp){
+    public PanelSeleccionador(PanelPrincipal pp, PanelPagar dp){
         this.setLayout(new GridLayout(4,1,0,50));
         b1=new BotonSeleccionar("1", pp,1,dp,this);
         b2=new BotonSeleccionar("2", pp,2,dp,this);

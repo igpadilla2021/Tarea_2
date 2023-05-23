@@ -1,4 +1,4 @@
-/**
+package Grafic; /**
  *Clase que define el deposito de productos
  * @author Ignacio Padilla
  * @author Joaquin Garcia

@@ -1,8 +1,12 @@
-/**
+package Grafic; /**
  *Clase que crea el panel para pagar
  * @author Ignacio Padilla
  * @author Joaquin Garcia
  */
+import Grafic.BotonPagar;
+import Grafic.PanelPrincipal;
+import Grafic.PanelRetirar;
+
 import javax.swing.*;
 import java.awt.*;
 

@@ -1,4 +1,4 @@
-/**
+package Grafic; /**
  *Clase que crea el boton para retirar el dinero
  * @author Ignacio Padilla
  * @author Joaquin Garcia
@@ -20,7 +20,7 @@ public class BotonRetirarDinero extends JButton  {
      * @param pp es el panel principal que se ocupa
      * @param rp es el panel para retirar
      */
-    public BotonRetirarDinero(String n, PanelPrincipal pp,PanelRetirar rp){
+    public BotonRetirarDinero(String n, PanelPrincipal pp, PanelRetirar rp){
         super(n);
         this.rp=rp;
         this.pp = pp;

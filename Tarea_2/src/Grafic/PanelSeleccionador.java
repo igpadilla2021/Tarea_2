@@ -1,8 +1,10 @@
-/**
+package Grafic; /**
  *Clase que crea el panel para selecionar productos
  * @author Ignacio Padilla
  * @author Joaquin Garcia
  */
+import Grafic.BotonSeleccionar;
+
 import javax.swing.*;
 import java.awt.*;
 

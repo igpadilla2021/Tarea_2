@@ -1,4 +1,4 @@
-/**
+package Grafic; /**
  *Clase que crea el boton para seleccionar el producto
  * @author Ignacio Padilla
  * @author Joaquin Garcia

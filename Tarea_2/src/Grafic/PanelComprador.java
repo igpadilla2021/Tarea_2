@@ -1,8 +1,13 @@
-/**
+package Grafic; /**
  *Clase que crea el panel del comprador
  * @author Ignacio Padilla
  * @author Joaquin Garcia
  */
+import Grafic.PanelPagar;
+import Grafic.PanelPrincipal;
+import Grafic.PanelRetirar;
+import Grafic.PanelSeleccionador;
+
 import javax.swing.*;
 import java.awt.*;
 

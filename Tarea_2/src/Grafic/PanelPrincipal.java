@@ -1,4 +1,4 @@
-/**
+package Grafic; /**
  *Clase que crea el panel principal
  * @author Ignacio Padilla
  * @author Joaquin Garcia
@@ -29,16 +29,16 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
         this.add(exp);
     }
     /**
-     * define un PanelComprador
-     * @return retorna un PanelComprador com
+     * define un panelcomprador
+     * @return retorna un panelcomprador com
      */
     public PanelComprador panelComprador(){
         return com;
     }
 
     /**
-     * define un PanelExpendedor
-     * @return retorna un PanelExpendedor exp
+     * define un panelexpendedor
+     * @return retorna un panelexpendedor exp
      */
     public PanelExpendedor panelExpendedor(){
         return exp;

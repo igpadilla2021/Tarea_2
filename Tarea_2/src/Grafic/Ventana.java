@@ -1,8 +1,10 @@
-/**
+package Grafic; /**
  *Clase que crea la ventana
  * @author Ignacio Padilla
  * @author Joaquin Garcia
  */
+import Grafic.PanelPrincipal;
+
 import javax.swing.*;
 import java.awt.*;
 public class Ventana extends JFrame{

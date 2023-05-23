@@ -1,4 +1,4 @@
-/**
+package Grafic; /**
  *Clase que crea el panel del expendedor
  * @author Ignacio Padilla
  * @author Joaquin Garcia
@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import Elementos.*;
+import Grafic.DepProductos;
+import Grafic.PanelPrincipal;
 import Tarea_1.*;
 
 public class PanelExpendedor extends JPanel implements MouseListener {
@@ -34,7 +36,7 @@ public class PanelExpendedor extends JPanel implements MouseListener {
         this.setLayout(null);
         this.pp=pp;
 
-        exp=new Expendedor(24,1100,0);
+        exp=new Expendedor(24,0,1100);
         md=new DepMonedas();
 
         vuelto=new DepVuelto();

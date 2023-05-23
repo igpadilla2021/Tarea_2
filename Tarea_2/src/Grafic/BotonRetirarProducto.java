@@ -1,4 +1,4 @@
-/**
+package Grafic; /**
  *Clase que crea el boton para retirar el producto
  * @author Ignacio Padilla
  * @author Joaquin Garcia
@@ -19,7 +19,7 @@ public class BotonRetirarProducto extends JButton  {
      * @param pp es el panel principal que se ocupa
      * @param rp es el panel para retirar
      */
-    public BotonRetirarProducto(String n, PanelPrincipal pp,PanelRetirar rp){
+    public BotonRetirarProducto(String n, PanelPrincipal pp, PanelRetirar rp){
         super(n);
         this.rp=rp;
         this.pp = pp;

@@ -1,8 +1,11 @@
-/**
+package Grafic; /**
  *Clase que crea el panel para retirar
  * @author Ignacio Padilla
  * @author Joaquin Garcia
  */
+import Grafic.BotonRetirarDinero;
+import Grafic.BotonRetirarProducto;
+
 import javax.swing.*;
 import java.awt.*;
 
